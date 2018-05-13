@@ -14,15 +14,20 @@
     enabled: no
     gpgcheck: yes
 
+- name: Install OpenJDK
+  yum:
+    name: java-1.8.0-openjdk
+    state: present
+
 - name: Install Jenkins
   yum:
-    name: jenkins-2.100
+    name: jenkins
     enablerepo: jenkins
     state: present
 
 - name: Start Jenkins
   service:
-    name: jenkins
+    name: jenkins-2.100
     enabled: yes
     state: started
 
